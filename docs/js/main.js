@@ -27,68 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile menu functionality
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const navbar = document.querySelector('.navbar');
-    const navLinks = document.querySelector('.nav-links');
-
-    mobileMenu.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent click from bubbling to document
-        navbar.classList.toggle('menu-active');
-        // Show/hide navigation links except theme switch when menu is active
-        const links = navLinks.querySelectorAll('a:not(.theme-switch)');
-        links.forEach(link => {
-            if (window.innerWidth <= 768) {
-                link.style.display = navbar.classList.contains('menu-active') ? 'block' : 'none';
-            }
-        });
-    });
-
-    // Close mobile menu when clicking a link
-    navLinks.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A' && !e.target.classList.contains('theme-switch')) {
-            if (window.innerWidth <= 768) {
-                navbar.classList.remove('menu-active');
-                // Hide navigation links except theme switch
-                const links = navLinks.querySelectorAll('a:not(.theme-switch)');
-                links.forEach(link => {
-                    link.style.display = 'none';
-                });
-            }
-        }
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target) && navbar.classList.contains('menu-active')) {
-            navbar.classList.remove('menu-active');
-            if (window.innerWidth <= 768) {
-                // Hide navigation links except theme switch
-                const links = navLinks.querySelectorAll('a:not(.theme-switch)');
-                links.forEach(link => {
-                    link.style.display = 'none';
-                });
-            }
-        }
-    });
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            // Show all nav links on desktop
-            const links = navLinks.querySelectorAll('a');
-            links.forEach(link => {
-                link.style.display = 'block';
-            });
-        } else {
-            // On mobile, only show links if menu is active
-            const links = navLinks.querySelectorAll('a:not(.theme-switch)');
-            links.forEach(link => {
-                link.style.display = navbar.classList.contains('menu-active') ? 'block' : 'none';
-            });
-        }
-    });
-
     // Update active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
@@ -159,10 +97,11 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                navbar.classList.remove('menu-active');
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
