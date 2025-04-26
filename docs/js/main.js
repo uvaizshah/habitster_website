@@ -32,24 +32,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelector('.nav-links');
 
-    mobileMenu.addEventListener('click', () => {
+    mobileMenu.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent click from bubbling to document
         navbar.classList.toggle('menu-active');
         // Show/hide navigation links except theme switch when menu is active
-        const links = navLinks.querySelectorAll('a');
+        const links = navLinks.querySelectorAll('a:not(.theme-switch)');
         links.forEach(link => {
-            link.style.display = navbar.classList.contains('menu-active') ? 'block' : 'none';
+            if (window.innerWidth <= 768) {
+                link.style.display = navbar.classList.contains('menu-active') ? 'block' : 'none';
+            }
         });
     });
 
     // Close mobile menu when clicking a link
     navLinks.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            navbar.classList.remove('menu-active');
-            // Hide navigation links except theme switch
-            const links = navLinks.querySelectorAll('a');
-            links.forEach(link => {
-                link.style.display = 'none';
-            });
+        if (e.target.tagName === 'A' && !e.target.classList.contains('theme-switch')) {
+            if (window.innerWidth <= 768) {
+                navbar.classList.remove('menu-active');
+                // Hide navigation links except theme switch
+                const links = navLinks.querySelectorAll('a:not(.theme-switch)');
+                links.forEach(link => {
+                    link.style.display = 'none';
+                });
+            }
         }
     });
 
@@ -57,10 +62,29 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', (e) => {
         if (!navbar.contains(e.target) && navbar.classList.contains('menu-active')) {
             navbar.classList.remove('menu-active');
-            // Hide navigation links except theme switch
+            if (window.innerWidth <= 768) {
+                // Hide navigation links except theme switch
+                const links = navLinks.querySelectorAll('a:not(.theme-switch)');
+                links.forEach(link => {
+                    link.style.display = 'none';
+                });
+            }
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            // Show all nav links on desktop
             const links = navLinks.querySelectorAll('a');
             links.forEach(link => {
-                link.style.display = 'none';
+                link.style.display = 'block';
+            });
+        } else {
+            // On mobile, only show links if menu is active
+            const links = navLinks.querySelectorAll('a:not(.theme-switch)');
+            links.forEach(link => {
+                link.style.display = navbar.classList.contains('menu-active') ? 'block' : 'none';
             });
         }
     });
