@@ -291,6 +291,7 @@ body {
     padding: 0.5rem;
 }
 
+/* Mobile menu button spans (hamburger bars) */
 .mobile-menu span {
     display: block;
     width: 25px;
@@ -298,6 +299,10 @@ body {
     background: var(--neutral-text);
     margin: 5px 0;
     transition: all 0.3s ease;
+}
+
+[data-theme="light"] .mobile-menu span {
+    background: var(--light-text);
 }
 
 /* Hero Section */
@@ -702,7 +707,36 @@ footer {
         background: rgba(53, 0, 20, 0.95);
         padding: 1rem;
         gap: 1rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(255, 79, 129, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar.menu-active .nav-links a {
+        display: block;
+        text-align: center;
+        padding: 0.8rem;
+        background: rgba(53, 0, 20, 0.8);
+        border-radius: 8px;
+        margin: 0.2rem 0;
+    }
+
+    .navbar.menu-active .nav-links a:hover {
+        background: rgba(255, 20, 147, 0.2);
+    }
+
+    /* Light mode styles */
+    [data-theme="light"] .navbar.menu-active .nav-links {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    [data-theme="light"] .navbar.menu-active .nav-links a {
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="light"] .navbar.menu-active .nav-links a:hover {
+        background: rgba(255, 0, 102, 0.1);
     }
 
     .navbar.menu-active .mobile-menu span:nth-child(1) {
@@ -1086,9 +1120,12 @@ footer {
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(53, 0, 20, 0.95);
+        background: rgba(var(--primary-bg), 0.95);
         padding: 1rem;
         gap: 1rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(var(--accent-vibrant), 0.1);
     }
 
     .navbar.menu-active .nav-links a {
@@ -1096,6 +1133,10 @@ footer {
         text-align: center;
         padding: 0.8rem;
     }
+}
+
+[data-theme="light"] .navbar.menu-active .nav-links {
+    background: rgba(255, 255, 255, 0.95);
 }
 
 /* Floating Elements */
