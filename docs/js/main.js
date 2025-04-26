@@ -30,15 +30,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu functionality
     const mobileMenu = document.querySelector('.mobile-menu');
     const navbar = document.querySelector('.navbar');
-    
+    const navLinks = document.querySelector('.nav-links');
+
     mobileMenu.addEventListener('click', () => {
         navbar.classList.toggle('menu-active');
+        // Show/hide navigation links except theme switch when menu is active
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.style.display = navbar.classList.contains('menu-active') ? 'block' : 'none';
+        });
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            navbar.classList.remove('menu-active');
+            // Hide navigation links except theme switch
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.style.display = 'none';
+            });
+        }
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!navbar.contains(e.target) && navbar.classList.contains('menu-active')) {
             navbar.classList.remove('menu-active');
+            // Hide navigation links except theme switch
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.style.display = 'none';
+            });
         }
     });
 

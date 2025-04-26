@@ -1058,6 +1058,44 @@ footer {
     .cta-group {
         justify-content: flex-start; /* Keep left alignment on mobile */
     }
+
+    .nav-content {
+        padding: 1rem;
+        justify-content: space-between;
+    }
+
+    .nav-links a {
+        display: none;
+    }
+
+    .nav-links .theme-switch {
+        display: flex;
+        order: -1;
+    }
+
+    .mobile-menu {
+        display: block;
+        order: 1;
+    }
+
+    /* When menu is active */
+    .navbar.menu-active .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(53, 0, 20, 0.95);
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .navbar.menu-active .nav-links a {
+        display: block;
+        text-align: center;
+        padding: 0.8rem;
+    }
 }
 
 /* Floating Elements */
