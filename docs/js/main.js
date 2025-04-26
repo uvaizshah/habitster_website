@@ -17,16 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Scroll effect for floating elements
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        floatingElements.forEach((el, index) => {
-            const speed = (index + 1) * 0.08;
-            const yPos = scrolled * speed;
-            el.style.transform = `translateY(${yPos}px)`;
-        });
-    });
-
     // Update active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
@@ -44,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Form handling
     const form = document.getElementById('waitlist-form');
     const inputs = form.querySelectorAll('input');
     
-    // Add focus effects to inputs
     inputs.forEach(input => {
         input.addEventListener('focus', () => {
             input.parentElement.classList.add('focused');
@@ -58,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle form submission with enhanced feedback
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         const name = document.getElementById('name').value;
@@ -68,27 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
             showSuccessMessage(name);
             form.reset();
         }
-    });
-
-    // Animation effects
-    const observerOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    document.querySelectorAll('.feature, .stats-card, .hero-content > *, .hero-text-wrapper > *, .about-content > *').forEach(el => {
-        el.classList.add('reveal-on-scroll');
-        observer.observe(el);
     });
 
     // Smooth scroll handling
@@ -105,13 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-    });
-
-    // Particle animations
-    const particles = document.querySelectorAll('.particle');
-    particles.forEach(particle => {
-        particle.style.animationDuration = Math.random() * 10 + 10 + 's';
-        particle.style.animationDelay = Math.random() * 5 + 's';
     });
 
     // Parallax effect for blobs
@@ -131,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initThemeSwitch();
 });
 
-// Success message animation
+// Utility Functions
 function showSuccessMessage(name) {
     const existingMessage = document.querySelector('.success-message');
     if (existingMessage) {
@@ -152,7 +113,6 @@ function showSuccessMessage(name) {
     }, 3000);
 }
 
-// Smooth scroll with improved easing
 function scrollToForm() {
     document.getElementById('signup').scrollIntoView({ 
         behavior: 'smooth',
@@ -160,57 +120,20 @@ function scrollToForm() {
     });
 }
 
-// Email validation
 function validateEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Theme Switcher
+// Theme handling
 function initThemeSwitch() {
     const themeToggle = document.getElementById('theme-toggle');
-    
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     themeToggle.checked = savedTheme === 'light';
 
-    // Handle theme switching
     themeToggle.addEventListener('change', (e) => {
         const theme = e.target.checked ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
     });
 }
-
-// Theme switching functionality
-const themeSwitch = document.querySelector('.theme-switch input');
-
-// Check for saved theme preference, otherwise use system preference
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-const currentTheme = localStorage.getItem('theme');
-
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'light') {
-        themeSwitch.checked = true;
-    }
-} else {
-    if (prefersDark.matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeSwitch.checked = false;
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeSwitch.checked = true;
-    }
-}
-
-// Handle theme switch
-themeSwitch.addEventListener('change', function(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
-});

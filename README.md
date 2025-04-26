@@ -1,31 +1,34 @@
-# Landing Page Project
+# Habitster Landing Page
 
 ## Overview
-This project is a simple landing page titled "Launching Soon." It is designed to capture user interest and collect email addresses for updates.
+This project is the landing page for Habitster, a gamified habit-tracking application. It is designed to showcase the app's features and collect email addresses for early access.
 
 ## Project Structure
 ```
-landing-page
-├── src
-│   ├── index.html         # Main HTML document for the landing page
-│   ├── css
-│   │   └── style.css      # Styles for the landing page
-│   ├── js
-│   │   └── main.js        # JavaScript functionality for the landing page
-│   └── assets             # Directory for additional assets (fonts, icons, etc.)
-├── .gitignore             # Specifies files to be ignored by Git
-└── README.md              # Documentation for the project
+landing-page/
+├── docs/              # Main website files
+│   ├── index.html    # Main HTML document
+│   ├── CNAME        # Domain configuration
+│   ├── assets/      # Images and assets
+│   ├── css/         # Stylesheets
+│   └── js/          # JavaScript files
+├── .gitignore       # Git ignore configuration
+├── package.json     # Project configuration
+└── README.md        # Documentation
 ```
 
-## Setup Instructions
-1. Clone the repository to your local machine.
-2. Navigate to the project directory.
-3. Open `src/index.html` in your web browser to view the landing page.
+## Features
+- Responsive design for all device sizes
+- Dark/Light theme toggle with persistence
+- Interactive UI elements with parallax effects
+- Smooth scrolling navigation
+- Waitlist signup form with validation
+- Social media integration
 
-## Usage
-- Users can enter their email addresses in the form to receive notifications about the launch.
-- Customize the styles in `src/css/style.css` to match your branding.
-- Add any necessary JavaScript functionality in `src/js/main.js`.
+## Development
+1. Clone the repository
+2. Navigate to the `docs` directory
+3. Open `index.html` in a browser to view the site
 
 ## Contributing
-Feel free to submit issues or pull requests for improvements or bug fixes.
+Feel free to submit issues and pull requests for improvements or bug fixes.

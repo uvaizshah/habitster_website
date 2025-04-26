@@ -299,20 +299,6 @@ body {
     padding: 0.5rem;
 }
 
-/* Mobile menu button spans (hamburger bars) */
-.mobile-menu span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background: var(--neutral-text);
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-[data-theme="light"] .mobile-menu span {
-    background: var(--light-text);
-}
-
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -326,22 +312,9 @@ body {
     padding-top: 80px;
 }
 
-nav {
-    padding: 20px;
-    background: rgba(53, 0, 20, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
 .logo {
     display: flex;
     align-items: center;
-}
-
-.logo img.mascot {
-    height: 82.5px; /* Reduced from 165px (2x smaller) */
-    width: auto;
-    object-fit: contain;
 }
 
 .hero-content {
@@ -401,27 +374,6 @@ nav {
     margin-bottom: 40px;
     opacity: 0.9;
     text-align: left; /* Changed from center to left */
-}
-
-/* Hero section enhancements */
-.hero-title {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1.2;
-    background: linear-gradient(90deg, var(--accent-vibrant), var(--accent-subtle));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--neutral-text);
-    text-align: center;
-    margin-bottom: 40px;
-    opacity: 0.9;
 }
 
 /* Buttons */
@@ -679,7 +631,7 @@ footer {
 
 @media (max-width: 768px) {
     .logo img.mascot {
-        height: 82.5px;
+        display: none;
     }
 
     .hero-content h1 {
@@ -728,7 +680,11 @@ footer {
 /* Remove all mobile menu related styles */
 .mobile-menu,
 .mobile-menu-close,
-.mobile-menu-overlay {
+.mobile-menu-overlay,
+.mobile-menu span,
+[data-theme="light"] .mobile-menu span,
+.navbar.menu-active .nav-links,
+[data-theme="light"] .navbar.menu-active .nav-links {
     display: none;
 }
 
@@ -1568,19 +1524,6 @@ footer {
     padding-top: 20px;
 }
 
-.founder-image-placeholder {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(135deg, var(--accent-vibrant), var(--accent-subtle));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 80px;
-    color: rgba(255, 255, 255, 0.9);
-    border: 4px solid rgba(255, 255, 255, 0.2);
-}
-
 .story-text h2 {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -1631,9 +1574,7 @@ footer {
     }
 
     .founder-image-placeholder {
-        width: 150px;
-        height: 150px;
-        font-size: 60px;
+        display: none;
     }
 
     .story-text h2 {
@@ -1683,11 +1624,6 @@ footer {
 [data-theme="light"] .founder-image {
     border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-}
-
-/* Remove the placeholder styles since we're using the actual image */
-.founder-image-placeholder {
-    display: none;
 }
 
 /* Touch device optimizations */
