@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habitster - Transform Your Daily Routines into Rewarding Adventures</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-square"></div>
+        <div class="floating-square"></div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="background-wrapper">
+        <div class="blob-effect blob1"></div>
+        <div class="blob-effect blob2"></div>
+        <div class="gradient-overlay"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="assets/white_logo.png" alt="Habitster Logo" class="dark-logo">
+                <img src="assets/habitsterGradient.png" alt="Habitster Logo" class="light-logo">
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <div class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <label for="theme-toggle" class="theme-switch-label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <span class="theme-switch-handle"></span>
+                    </label>
+                </div>
+            </div>
+            <button class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-text-wrapper">
+                <h1>A gamified way to<span class="highlight">build better habits</span></h1>
+                <p class="hero-subtitle">Transform your daily routines into engaging quests, earn XP, and build lasting habits with friends</p>
+                <div class="cta-group">
+                    <button class="cta-button glow-effect" onclick="scrollToForm()">
+                        <span>Join the Waitlist</span>
+                        <svg class="glow-container">
+                            <rect pathLength="100" class="glow-blur"></rect>
+                            <rect pathLength="100" class="glow-line"></rect>
+                        </svg>
+                    </button>
+                    <div class="early-access">
+                        <i class="fas fa-rocket"></i>
+                        <span>Early access coming soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="features" class="features-grid">
+        <div class="container">
+            <h2>Everything you need to build better habits</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Smart Habit Groups</h3>
+                    <p>Organize habits by category with custom rules, streaks, and progress tracking</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>XP & Rewards</h3>
+                    <p>Level up, earn rewards, and unlock themes as you build consistency</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Join habit groups, compete on leaderboards, and find your habit buddy</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Boxing</h3>
+                    <p>Plan your day with smart time blocks and visual scheduling</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Visual Progress</h3>
+                    <p>Track your journey with heatmaps, stats, and weekly reviews</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Smart Templates</h3>
+                    <p>Get started quickly with pre-built habit collections and routines</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Your Personal Habit Adventure</h2>
+                    <p>Habitster isn't just another habit tracker. It's your gamified companion that makes building better habits fun and rewarding. With customizable streak rules, forgiveness tokens, and a buddy system, you'll stay motivated and consistent on your journey to self-improvement.</p>
+                    <div class="key-features">
+                        <div class="key-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Flexible habit groups & customizable streaks</span>
+                        </div>
+                        <div class="key-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Built-in to-do list for one-time tasks</span>
+                        </div>
+                        <div class="key-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Smart reminders based on time & location</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="story">
+        <div class="container">
+            <div class="story-content glassmorphic">
+                <div class="story-image">
+                    <img src="assets/uvaizpro.png" alt="Uvaiz Shah - Founder & CEO" class="founder-image">
+                </div>
+                <div class="story-text">
+                    <h2>The Story Behind Habitster</h2>
+                    
+                    <div class="story-paragraphs">
+                        <p>It all started in 2024. I've always been the kind of person who'd create schedules and routines—only to abandon them a few days later. I realized this pattern had to change. So I began digging deep into how habits actually work. I watched countless YouTube videos, read books like <i>Atomic Habits</i> by James Clear, and experimented with what I learned.</p>
+                        
+                        <p>That's when I came up with a personal system: giving myself points for good habits and deducting points for bad ones. I tracked streaks and even completed a 100-day No Sugar challenge. The results were amazing—but maintaining the system was a nightmare. I had to juggle between different apps, create new tables and pages daily, and it became overwhelming. Eventually, I gave up on it altogether.</p>
+                        
+                        <p>That's when the idea for Habitster was born.</p>
+                        
+                        <p>A productivity app that combines everything I learned with a gamified approach—rewarding good habits, tracking streaks, reducing bad ones, and making the process fun and addictive (in a good way). I shared the concept with my friends, did more research, and together we started shaping something truly meaningful.</p>
+                        
+                        <p>In a world full of apps designed to waste your time, we're building one that helps you take it back.</p>
+                        
+                        <p class="signature">Thank you to everyone who's supporting this journey. We're just getting started.</p>
+                        
+                        <p class="founder-signature">— Uvaiz Shah<br>Founder & CEO, Habitster</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup" class="signup">
+        <div class="container">
+            <h2>Be the First to Level Up Your Habits</h2>
+            <p>Join our waitlist and get early access when we launch!</p>
+            <form id="waitlist-form" class="signup-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <button type="submit" class="submit-button">Join the Waitlist</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://instagram.com/habitster" target="_blank" aria-label="Follow us on Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com/company/habitster" target="_blank" aria-label="Follow us on LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2025 Habitster. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
